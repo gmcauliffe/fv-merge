@@ -9,18 +9,17 @@ class App extends Component {
     super(props);
 
     this.state = {
-      entries: [
-        // { word: "test word 1", phrases: "testing for word one" },
-        // { word: "test word 2", phrases: "testing for word two" },    
-      ],
-    };
+      entries: [],
+      isLoading: false
+    }
   }
 
   componentDidMount() {
+    this.setState({ isLoading: true });
+
     fetch('https://pznmh01oo9.execute-api.ca-central-1.amazonaws.com/dev/test-merge-two-records')
       .then(response => response.json())
-      .then(data => this.setState({ entries: data }))
-      .then(console.log('Data Data Data', this.state.entries));
+      .then(data => this.setState({ entries: data, isLoading: false }));
   }
 
 
@@ -32,17 +31,12 @@ class App extends Component {
           <p>
             FirstVoices Merge Project
           </p>
-          <a
-            className="App-link"
-            href="https://www.firstvoices.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            FirstVoices
-          </a>
         </header>
+
         <div>
-          <EntryList entries={ this.state.entries }/>
+          <EntryList 
+            entries={ this.state.entries }
+            isLoading={ this.state.isLoading } />
         </div>
       </div>
     );
