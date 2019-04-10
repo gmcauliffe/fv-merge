@@ -10,10 +10,17 @@ class App extends Component {
 
     this.state = {
       entries: [
-        { word: "test word 1", phrases: "testing for word one" },
-        { word: "test word 2", phrases: "testing for word two" },    
+        // { word: "test word 1", phrases: "testing for word one" },
+        // { word: "test word 2", phrases: "testing for word two" },    
       ],
     };
+  }
+
+  componentDidMount() {
+    fetch('https://pznmh01oo9.execute-api.ca-central-1.amazonaws.com/dev/test-merge-two-records')
+      .then(response => response.json())
+      .then(data => this.setState({ entries: data }))
+      .then(console.log('Data Data Data', this.state.entries));
   }
 
 
@@ -37,7 +44,6 @@ class App extends Component {
         <div>
           <EntryList entries={ this.state.entries }/>
         </div>
-
       </div>
     );
   }

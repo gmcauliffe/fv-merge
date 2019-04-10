@@ -5,8 +5,11 @@ class EntryList extends Component {
   render() {
     const entries = this.props.entries.map(entry => {
       return <Entry 
+        key={ entry.uid }
         word={ entry.word }
-        phrases={ entry.phrases } />
+        part={ entry.part_of_speech }
+        reference={ entry['fv:reference'] }
+        pronunciation={ entry['fv-word:pronunciation'] } />
     })
     
     return (
