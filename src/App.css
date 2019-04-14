@@ -20,3 +20,41 @@
 .App-link {
   color: #b40000;
 }
+
+.entry {
+  border: solid;
+  border-color: #b40000;
+  border-width: thin;
+  border-radius: 0.5rem;
+  margin-top: 10px;
+  margin-right: 2em;
+  margin-left: 2em;
+  opacity: 0.5;
+}
+
+.entry:hover {
+  opacity: 1;
+}
+
+.entry header {
+  background-color: #666666;
+  height: 60px;
+  line-height: 40px;
+  border-radius: 0.5rem;
+}
+
+.entry-content,
+.entry-word {
+  overflow: hidden;
+  margin: 5px;
+  padding: 0 10px;
+}
+
+.entry-content {
+  flex: 8;
+}
+
+.entry-word {
+  flex: 2;
+  font-weight: 700;
+}
