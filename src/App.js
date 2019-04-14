@@ -19,7 +19,12 @@ class App extends Component {
 
     fetch('https://pznmh01oo9.execute-api.ca-central-1.amazonaws.com/dev/test-merge-two-records')
       .then(response => response.json())
-      .then(data => this.setState({ entries: data, isLoading: false }));
+      .then(responseData => { console.log(responseData); return responseData; })
+      .then(data => { this.setState({ entries: data, isLoading: false }) })
+
+      .catch(err => {
+        console.log("fetch error" + err);
+    });
   }
 
 

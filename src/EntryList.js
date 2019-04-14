@@ -12,7 +12,7 @@ class EntryList extends Component {
         word={ entry.word }
         part={ entry.part_of_speech }
         reference={ entry['fv:reference'] }
-        phrases={ entry && entry.related_phrases ? entry.related_phrases.phrase : null }
+        phrases={ entry.related_phrases[0].phrase }
         pronunciation={ entry['fv-word:pronunciation'] } />
     });
     
@@ -21,7 +21,7 @@ class EntryList extends Component {
     }
     return (
       <main className="entries">
-      Entries
+      Results
         { entries }
       </main>  
     );
