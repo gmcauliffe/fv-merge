@@ -6,8 +6,13 @@ class Entry extends Component {
   render() {
     return (
       <div className='entry'>
-        <span className='item'>{this.props.word}</span>
-        <span className='item-content'>{this.props.phrases}</span>
+        <ul>
+          <li className='entry-word'>{this.props.word}</li>
+          <li className='entry-content'>{this.props.part}</li>
+          <li className='entry-content'>{this.props.reference}</li>
+          <li className='entry-content'>{this.props.pronunciation}</li>
+          <li className='entry-content'>{this.props.phrases}</li>
+        </ul>
       </div>);
   }
 }
